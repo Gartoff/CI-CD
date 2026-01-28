@@ -4,9 +4,9 @@ on:
   push: 
     branches:
       - develop
-  jobs: 
-    Test_Back_Front:
-      uses: ./github/workflows/01-1_TestBackFront.yml
+jobs: 
+  Test_Back_Front:
+    uses: ./github/workflows/01-1_TestBackFront.yml
   
     # Quality_Sonarqube:
     #   needs: [Test_Back_Front]
