@@ -1,7 +1,7 @@
 services:
   cktefrei_bdd:
     container_name: cktefrei_bdd
-    image: mariadb:latest
+    image: mariadb:12.0.2
     volumes:
     - ./mysql:/var/lib/mysql
     environment:
