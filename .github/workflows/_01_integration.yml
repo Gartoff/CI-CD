@@ -3,7 +3,8 @@ name: 01 - Integration
 on:
   push: 
     branches:
-      - develop
+      - Develop
+      
 
 jobs: 
   Test_Back_Front:
