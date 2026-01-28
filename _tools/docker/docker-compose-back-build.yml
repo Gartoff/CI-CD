@@ -3,9 +3,7 @@ services:
     container_name: cktefrei_bdd
     image: mariadb:12.1.2
     volumes:
-      - ./mysql:/var/lib/mysql
-    ports:
-      - 3306:3306
+    - ./mysql:/var/lib/mysql
     environment:
       MARIADB_ROOT_PASSWORD: toor
       MARIADB_DATABASE: bddname
@@ -22,4 +20,15 @@ services:
     container_name: cktefrei_adminer
     image: adminer
     ports:
-      - 8080:8080
+    - 8080:8080
+
+  mono_backend_build:
+    container_name: mono_backend_build
+    build: ./backend/.
+    environment:
+      BDD_HOST: mono_bdd
+    ports:
+      - 12000:12000
+    depends_on:
+      mono_bdd:
+        condition: service_healthy
