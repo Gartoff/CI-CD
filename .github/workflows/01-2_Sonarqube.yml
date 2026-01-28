@@ -14,12 +14,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      -name: SonarQube Scan
-       uses: QonarSource/sonarcloud-github-action@v3.1.0
-       with:
-        projectBaseDir: ./Backend
-      env: 
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
+      - name: SonarQube Scan
+        uses: QonarSource/sonarcloud-github-action@v3.1.0
+        with:
+          projectBaseDir: ./Backend
+        env: 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
+  
   QualityFront:
     runs-on: ubuntu-latest
     defaults:
@@ -30,9 +31,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      -name: SonarQube Scan
-       uses: QonarSource/sonarcloud-github-action@v3.1.0
-       with:
-        projectBaseDir: ./frontend
-      env: 
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
+      - name: SonarQube Scan
+        uses: QonarSource/sonarcloud-github-action@v3.1.0
+        with:
+          projectBaseDir: ./frontend
+        env: 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
