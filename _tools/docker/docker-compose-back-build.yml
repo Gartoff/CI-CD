@@ -1,7 +1,7 @@
 services:
   cktefrei_bdd:
     container_name: cktefrei_bdd
-    image: mariadb:12.1.2
+    image: mariadb:latest
     volumes:
     - ./mysql:/var/lib/mysql
     environment:
@@ -30,5 +30,5 @@ services:
     ports:
       - 12000:12000
     depends_on:
-      mono_bdd:
+      cktefrei_bdd:
         condition: service_healthy
