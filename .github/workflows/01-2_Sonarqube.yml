@@ -1,7 +1,7 @@
 name: 01-2 - Integration - SONARQUBE
 
 on:
-  workflow
+  workflow_call
 
 jobs:
   QualityBack:
