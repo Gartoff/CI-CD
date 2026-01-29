@@ -1,9 +1,9 @@
 name: 02 - Staging
 
-on: 
+on:
   push:
     branches:
-      - Develop
+      - develop
       - release/*
 
 jobs:
@@ -13,9 +13,12 @@ jobs:
       - run: env | sort
 
   Build_Push_Docker:
-    if: ${{ github.ref_name == 'Develop'}}
+    if: ${{ github.ref_name == 'develop'}}
     uses: ./.github/workflows/z_Docker-Ghcr.yml
     secrets: inherit
+    permissions:
+      contents: read
+      packages: write
     with:
       docker-mode: canary
 
@@ -23,4 +26,3 @@ jobs:
   #   needs: [Build_Push_Docker]
   #   uses: ./.github/workflows/02-2_TrivyScan.yml
   #   secrets: inherit
-
